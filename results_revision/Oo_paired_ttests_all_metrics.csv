@@ -1,0 +1,61 @@
+Metric,Dataset,Noise setting,Delta (QSVC - SPSA),p-value (SPSA),Delta (QSVC - COBYLA),p-value (COBYLA)
+Accuracy,Iris,Ideal,+0.133,0.068,+0.193,0.035*
+Accuracy,Iris,Low stress,+0.160,0.039*,+0.180,0.023*
+Accuracy,Iris,High stress,+0.173,0.029*,+0.227,0.003*
+Accuracy,Make_Moons,Ideal,+0.040,0.358,+0.140,0.012*
+Accuracy,Make_Moons,Low stress,+0.060,0.295,+0.060,0.286
+Accuracy,Make_Moons,High stress,+0.067,0.230,+0.127,0.095
+Accuracy,Make_Circles,Ideal,-0.067,0.047*,-0.067,0.089
+Accuracy,Make_Circles,Low stress,-0.060,0.266,-0.053,0.212
+Accuracy,Make_Circles,High stress,-0.060,0.105,-0.053,0.120
+Accuracy,Breast Cancer,Ideal,+0.107,0.051,+0.160,0.033*
+Accuracy,Breast Cancer,Low stress,+0.107,0.078,+0.127,0.053
+Accuracy,Breast Cancer,High stress,+0.073,0.108,+0.127,0.034*
+Accuracy,Wine,Ideal,+0.107,0.051,+0.167,0.022*
+Accuracy,Wine,Low stress,+0.033,0.546,+0.107,0.089
+Accuracy,Wine,High stress,+0.060,0.167,+0.093,0.019*
+Precision,Iris,Ideal,+0.148,0.065,+0.231,0.034*
+Precision,Iris,Low stress,+0.152,0.056,+0.212,0.021*
+Precision,Iris,High stress,+0.223,0.028*,+0.276,0.013*
+Precision,Make_Moons,Ideal,+0.059,0.253,+0.160,0.004*
+Precision,Make_Moons,Low stress,+0.084,0.231,+0.075,0.173
+Precision,Make_Moons,High stress,+0.098,0.134,+0.156,0.074
+Precision,Make_Circles,Ideal,-0.064,0.142,-0.075,0.176
+Precision,Make_Circles,Low stress,-0.065,0.283,-0.052,0.298
+Precision,Make_Circles,High stress,-0.074,0.123,-0.071,0.133
+Precision,Breast Cancer,Ideal,+0.052,0.182,+0.102,0.045*
+Precision,Breast Cancer,Low stress,+0.085,0.047*,+0.089,0.029*
+Precision,Breast Cancer,High stress,+0.051,0.075,+0.072,0.047*
+Precision,Wine,Ideal,+0.048,0.247,+0.127,0.059
+Precision,Wine,Low stress,-0.009,0.813,+0.056,0.269
+Precision,Wine,High stress,+0.020,0.458,+0.042,0.175
+Recall,Iris,Ideal,+0.080,0.305,+0.067,0.298
+Recall,Iris,Low stress,+0.107,0.056,+0.053,0.242
+Recall,Iris,High stress,+0.040,0.426,+0.107,0.078
+Recall,Make_Moons,Ideal,+0.027,0.717,+0.147,0.130
+Recall,Make_Moons,Low stress,+0.080,0.414,+0.053,0.605
+Recall,Make_Moons,High stress,+0.067,0.561,+0.053,0.654
+Recall,Make_Circles,Ideal,-0.107,0.016*,-0.093,0.052
+Recall,Make_Circles,Low stress,-0.067,0.230,-0.080,0.109
+Recall,Make_Circles,High stress,-0.040,0.426,-0.027,0.587
+Recall,Breast Cancer,Ideal,+0.137,0.019*,+0.137,0.019*
+Recall,Breast Cancer,Low stress,+0.042,0.528,+0.095,0.255
+Recall,Breast Cancer,High stress,+0.042,0.374,+0.137,0.025*
+Recall,Wine,Ideal,+0.168,0.045*,+0.193,0.071
+Recall,Wine,Low stress,+0.099,0.287,+0.171,0.016*
+Recall,Wine,High stress,+0.122,0.175,+0.154,0.046*
+F1,Iris,Ideal,+0.124,0.075,+0.157,0.040*
+F1,Iris,Low stress,+0.140,0.009*,+0.136,0.010*
+F1,Iris,High stress,+0.138,0.034*,+0.191,0.001*
+F1,Make_Moons,Ideal,+0.039,0.427,+0.146,0.041*
+F1,Make_Moons,Low stress,+0.085,0.319,+0.054,0.448
+F1,Make_Moons,High stress,+0.075,0.380,+0.098,0.236
+F1,Make_Circles,Ideal,-0.077,0.009*,-0.074,0.031*
+F1,Make_Circles,Low stress,-0.062,0.166,-0.057,0.078
+F1,Make_Circles,High stress,-0.054,0.088,-0.045,0.112
+F1,Breast Cancer,Ideal,+0.089,0.040*,+0.117,0.029*
+F1,Breast Cancer,Low stress,+0.070,0.138,+0.094,0.087
+F1,Breast Cancer,High stress,+0.049,0.151,+0.100,0.033*
+F1,Wine,Ideal,+0.111,0.034*,+0.164,0.046*
+F1,Wine,Low stress,+0.046,0.422,+0.108,0.058
+F1,Wine,High stress,+0.069,0.170,+0.095,0.024*
