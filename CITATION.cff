@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you reference or build upon this quantum classifier noise robustness study, please cite it as below."
+title: "Benchmarking Quantum Kernel Methods vs Variational Quantum Classifiers under Hardware-Realistic NISQ Noise"
+authors:
+  - family-names: "Singh"
+    given-names: "Rajnish"
+    orcid: ""
+    affiliation: "Technology Innovation Hub (TIH), IIT Guwahati"
+date-released: 2026-10-10
+url: "https://github.com/givemehat/Noise_Resilience_Quantum_Classifiers"
+repository-code: "https://github.com/givemehat/Noise_Resilience_Quantum_Classifiers"
+keywords:
+  - "quantum machine learning"
+  - "qsvc"
+  - "vqc"
+  - "qiskit"
+  - "nisq noise"
+  - "noise resilience"
+  - "quantum computing"
+license: "MIT"
