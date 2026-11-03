@@ -99,6 +99,31 @@ def preprocess_data(X, y, random_state, n_features=2):
     
     return X_train_final, X_test_final, y_train, y_test
 
+def create_noise_model(p1: float, p2: float, gate_1q=None, gate_2q=None) -> NoiseModel:
+    """
+    Synthesizes a hardware-calibrated Pauli depolarizing noise model.
+    
+    Args:
+        p1 (float): Single-qubit depolarizing error probability.
+        p2 (float): Two-qubit depolarizing error probability.
+        gate_1q (list): List of 1-qubit gate identifiers to apply error to.
+        gate_2q (list): List of 2-qubit gate identifiers to apply error to.
+        
+    Returns:
+        NoiseModel or None: Calibrated Qiskit Aer NoiseModel, or None if ideal.
+    """
+    if p1 == 0.0 and p2 == 0.0:
+        return None
+    if gate_1q is None:
+        gate_1q = ['u', 'p', 'r', 'sx', 'x', 'rz']
+    if gate_2q is None:
+        gate_2q = ['cx', 'ecr', 'cz']
+    noise_model = NoiseModel()
+    noise_model.add_all_qubit_quantum_error(depolarizing_error(p1, 1), gate_1q)
+    noise_model.add_all_qubit_quantum_error(depolarizing_error(p2, 2), gate_2q)
+    return noise_model
+
+
 def extract_circuit_metrics(circuit, pm):
     transpiled = pm.run(circuit)
     ops = transpiled.count_ops()
@@ -144,9 +169,7 @@ def run_experiments():
                 if noise_name == 'Ideal':
                     sampler = StatevectorSampler()
                 else:
-                    noise_model = NoiseModel()
-                    noise_model.add_all_qubit_quantum_error(depolarizing_error(p1, 1), gate_1q)
-                    noise_model.add_all_qubit_quantum_error(depolarizing_error(p2, 2), gate_2q)
+                    noise_model = create_noise_model(p1, p2, gate_1q, gate_2q)
                     sampler = AerSamplerV2(default_shots=1024, options={'backend_options': {'noise_model': noise_model, 'seed_simulator': seed}})
                 
                 # Classical RBF-SVM Baseline (evaluated once per seed)

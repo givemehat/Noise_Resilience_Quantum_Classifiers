@@ -1,0 +1,38 @@
+name: QML Noise Resilience Tests
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  test-qml-robustness:
+    name: Run QML Benchmark PyTest Suite
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11"]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install qiskit==2.5.2 qiskit-aer==0.17.2 qiskit-machine-learning==0.9.1 qiskit-algorithms==0.4.0 scikit-learn==1.5.2 pandas numpy pytest pytest-cov
+
+      - name: Run Test Suite
+        run: |
+          pytest tests/test_noise_study.py -v
