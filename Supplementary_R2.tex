@@ -1,0 +1,291 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+%% Blue marks numbers regenerated for revision R2. For a clean copy set \chgcolor to black.
+\newcommand{\chgcolor}{blue}
+\pagestyle{empty}
+\begin{document}
+Table~\ref{tab:full} gives accuracy, precision, recall, and $F_1$ (mean $\pm$ standard
+deviation over five seeds) for every dataset, noise setting, and model.
+
+{\footnotesize
+\setlength{\tabcolsep}{1.2pt}
+\renewcommand{\arraystretch}{1.15}
+{\color{\chgcolor}
+\begin{longtable}{lllllll}
+\caption{Complete results (mean $\pm$ standard deviation over five seeds).}
+\label{tab:full}\\
+\toprule
+\textbf{Dataset} & \textbf{Noise} & \textbf{Model} & \textbf{Acc.} & \textbf{Prec.} & \textbf{Recall} & $\boldsymbol{F_1}$ \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Dataset} & \textbf{Noise} & \textbf{Model} & \textbf{Acc.} & \textbf{Prec.} & \textbf{Recall} & $\boldsymbol{F_1}$ \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Iris & Ideal & RBF-SVM & $0.993\pm0.015$ & $0.988\pm0.028$ & $1.000\pm0.000$ & $0.994\pm0.014$ \\
+ & Ideal & VQC-COBYLA-300 & $0.667\pm0.103$ & $0.665\pm0.122$ & $0.747\pm0.173$ & $0.690\pm0.091$ \\
+ & Ideal & VQC-SPSA-100 & $0.727\pm0.049$ & $0.730\pm0.097$ & $0.773\pm0.138$ & $0.738\pm0.030$ \\
+ & Ideal & QSVC & $0.813\pm0.056$ & $0.838\pm0.109$ & $0.800\pm0.094$ & $0.811\pm0.054$ \\
+ & Low stress & VQC-COBYLA-300 & $0.687\pm0.107$ & $0.677\pm0.143$ & $0.787\pm0.173$ & $0.714\pm0.100$ \\
+ & Low stress & VQC-SPSA-100 & $0.720\pm0.087$ & $0.726\pm0.124$ & $0.747\pm0.159$ & $0.725\pm0.091$ \\
+ & Low stress & QSVC & $0.820\pm0.038$ & $0.840\pm0.114$ & $0.827\pm0.112$ & $0.822\pm0.024$ \\
+ & High stress & VQC-COBYLA-300 & $0.693\pm0.086$ & $0.688\pm0.104$ & $0.773\pm0.138$ & $0.716\pm0.065$ \\
+ & High stress & VQC-SPSA-100 & $0.693\pm0.116$ & $0.686\pm0.148$ & $0.787\pm0.173$ & $0.718\pm0.102$ \\
+ & High stress & QSVC & $0.827\pm0.043$ & $0.868\pm0.118$ & $0.800\pm0.082$ & $0.824\pm0.027$ \\
+\midrule
+make\_moons & Ideal & RBF-SVM & $0.933\pm0.041$ & $0.947\pm0.053$ & $0.920\pm0.056$ & $0.932\pm0.041$ \\
+ & Ideal & VQC-COBYLA-300 & $0.547\pm0.038$ & $0.555\pm0.050$ & $0.520\pm0.128$ & $0.528\pm0.073$ \\
+ & Ideal & VQC-SPSA-100 & $0.573\pm0.064$ & $0.574\pm0.058$ & $0.573\pm0.130$ & $0.568\pm0.085$ \\
+ & Ideal & QSVC & $0.633\pm0.053$ & $0.651\pm0.088$ & $0.613\pm0.128$ & $0.622\pm0.064$ \\
+ & Low stress & VQC-COBYLA-300 & $0.547\pm0.065$ & $0.539\pm0.079$ & $0.533\pm0.200$ & $0.527\pm0.130$ \\
+ & Low stress & VQC-SPSA-100 & $0.607\pm0.028$ & $0.613\pm0.009$ & $0.573\pm0.130$ & $0.587\pm0.074$ \\
+ & Low stress & QSVC & $0.640\pm0.064$ & $0.663\pm0.096$ & $0.600\pm0.156$ & $0.619\pm0.087$ \\
+ & High stress & VQC-COBYLA-300 & $0.600\pm0.047$ & $0.611\pm0.033$ & $0.547\pm0.218$ & $0.559\pm0.131$ \\
+ & High stress & VQC-SPSA-100 & $0.573\pm0.072$ & $0.575\pm0.071$ & $0.507\pm0.203$ & $0.526\pm0.144$ \\
+ & High stress & QSVC & $0.653\pm0.038$ & $0.676\pm0.078$ & $0.627\pm0.138$ & $0.639\pm0.060$ \\
+\midrule
+make\_circles & Ideal & RBF-SVM & $0.953\pm0.030$ & $1.000\pm0.000$ & $0.907\pm0.060$ & $0.950\pm0.032$ \\
+ & Ideal & VQC-COBYLA-300 & $0.740\pm0.072$ & $0.726\pm0.095$ & $0.813\pm0.110$ & $0.759\pm0.052$ \\
+ & Ideal & VQC-SPSA-100 & $0.727\pm0.072$ & $0.719\pm0.097$ & $0.787\pm0.110$ & $0.743\pm0.053$ \\
+ & Ideal & QSVC & $0.700\pm0.047$ & $0.675\pm0.044$ & $0.773\pm0.037$ & $0.721\pm0.041$ \\
+ & Low stress & VQC-COBYLA-300 & $0.727\pm0.076$ & $0.709\pm0.100$ & $0.813\pm0.110$ & $0.750\pm0.055$ \\
+ & Low stress & VQC-SPSA-100 & $0.733\pm0.085$ & $0.714\pm0.109$ & $0.827\pm0.076$ & $0.759\pm0.056$ \\
+ & Low stress & QSVC & $0.700\pm0.041$ & $0.671\pm0.033$ & $0.787\pm0.073$ & $0.723\pm0.043$ \\
+ & High stress & VQC-COBYLA-300 & $0.713\pm0.045$ & $0.673\pm0.051$ & $0.853\pm0.056$ & $0.749\pm0.019$ \\
+ & High stress & VQC-SPSA-100 & $0.767\pm0.091$ & $0.744\pm0.107$ & $0.853\pm0.073$ & $0.789\pm0.065$ \\
+ & High stress & QSVC & $0.693\pm0.076$ & $0.659\pm0.058$ & $0.800\pm0.094$ & $0.722\pm0.071$ \\
+\midrule
+Breast Cancer & Ideal & RBF-SVM & $0.973\pm0.037$ & $0.989\pm0.024$ & $0.968\pm0.047$ & $0.978\pm0.030$ \\
+ & Ideal & VQC-COBYLA-300 & $0.580\pm0.087$ & $0.652\pm0.077$ & $0.737\pm0.083$ & $0.690\pm0.064$ \\
+ & Ideal & VQC-SPSA-100 & $0.607\pm0.037$ & $0.675\pm0.053$ & $0.747\pm0.069$ & $0.706\pm0.021$ \\
+ & Ideal & QSVC & $0.760\pm0.064$ & $0.756\pm0.061$ & $0.926\pm0.060$ & $0.831\pm0.043$ \\
+ & Low stress & VQC-COBYLA-300 & $0.627\pm0.060$ & $0.674\pm0.043$ & $0.800\pm0.094$ & $0.729\pm0.051$ \\
+ & Low stress & VQC-SPSA-100 & $0.633\pm0.062$ & $0.677\pm0.049$ & $0.811\pm0.071$ & $0.737\pm0.047$ \\
+ & Low stress & QSVC & $0.760\pm0.076$ & $0.768\pm0.063$ & $0.895\pm0.064$ & $0.826\pm0.055$ \\
+ & High stress & VQC-COBYLA-300 & $0.647\pm0.045$ & $0.689\pm0.038$ & $0.811\pm0.060$ & $0.744\pm0.034$ \\
+ & High stress & VQC-SPSA-100 & $0.667\pm0.075$ & $0.693\pm0.067$ & $0.863\pm0.060$ & $0.767\pm0.047$ \\
+ & High stress & QSVC & $0.740\pm0.072$ & $0.739\pm0.057$ & $0.916\pm0.047$ & $0.818\pm0.048$ \\
+\midrule
+Wine & Ideal & RBF-SVM & $0.893\pm0.028$ & $0.938\pm0.078$ & $0.877\pm0.099$ & $0.900\pm0.030$ \\
+ & Ideal & VQC-COBYLA-300 & $0.647\pm0.051$ & $0.669\pm0.067$ & $0.758\pm0.161$ & $0.698\pm0.065$ \\
+ & Ideal & VQC-SPSA-100 & $0.747\pm0.090$ & $0.766\pm0.087$ & $0.783\pm0.089$ & $0.773\pm0.083$ \\
+ & Ideal & QSVC & $0.780\pm0.038$ & $0.750\pm0.026$ & $0.904\pm0.067$ & $0.819\pm0.034$ \\
+ & Low stress & VQC-COBYLA-300 & $0.673\pm0.072$ & $0.697\pm0.070$ & $0.721\pm0.161$ & $0.702\pm0.106$ \\
+ & Low stress & VQC-SPSA-100 & $0.747\pm0.069$ & $0.761\pm0.069$ & $0.796\pm0.098$ & $0.775\pm0.067$ \\
+ & Low stress & QSVC & $0.780\pm0.051$ & $0.755\pm0.022$ & $0.892\pm0.087$ & $0.816\pm0.047$ \\
+ & High stress & VQC-COBYLA-300 & $0.673\pm0.068$ & $0.736\pm0.118$ & $0.687\pm0.124$ & $0.698\pm0.055$ \\
+ & High stress & VQC-SPSA-100 & $0.733\pm0.067$ & $0.760\pm0.083$ & $0.773\pm0.093$ & $0.762\pm0.059$ \\
+ & High stress & QSVC & $0.787\pm0.038$ & $0.761\pm0.052$ & $0.904\pm0.067$ & $0.824\pm0.030$ \\
+\end{longtable}
+}
+}
+
+\begin{table}[H]
+  \centering
+  \caption{Paired $t$-tests on test accuracy over five random seeds (five pairs, no correction for multiple comparisons). $\Delta$ is the mean accuracy difference (QSVC $-$ VQC). Bold values indicate $p < 0.05$.}
+  \label{tab:pvalues}
+  \footnotesize
+  \setlength{\tabcolsep}{5pt}
+  \renewcommand{\arraystretch}{1.2}
+  {\color{\chgcolor}\begin{tabular}{llcccc}
+    \toprule
+    & & \multicolumn{2}{c}{QSVC vs.\ VQC-SPSA-100} & \multicolumn{2}{c}{QSVC vs.\ VQC-COBYLA-300} \\
+    \cmidrule(lr){3-4} \cmidrule(lr){5-6}
+    Dataset & Noise setting & $\Delta$ & $p$-value & $\Delta$ & $p$-value \\
+    \midrule
+    \multirow{3}{*}{Iris} & Ideal & +0.087 & \textbf{0.007} & +0.147 & \textbf{0.024} \\
+  & Low stress & +0.100 & \textbf{0.023} & +0.133 & \textbf{0.037} \\
+  & High stress & +0.133 & 0.061 & +0.133 & 0.051 \\
+    \midrule
+    \multirow{3}{*}{make\_moons} & Ideal & +0.060 & 0.286 & +0.087 & 0.098 \\
+  & Low stress & +0.033 & 0.394 & +0.093 & 0.101 \\
+  & High stress & +0.080 & 0.109 & +0.053 & 0.160 \\
+    \midrule
+    \multirow{3}{*}{make\_circles} & Ideal & $-$0.027 & 0.456 & $-$0.040 & 0.235 \\
+  & Low stress & $-$0.033 & 0.486 & $-$0.027 & 0.541 \\
+  & High stress & $-$0.073 & 0.130 & $-$0.020 & 0.468 \\
+    \midrule
+    \multirow{3}{*}{Breast Cancer} & Ideal & +0.153 & \textbf{0.002} & +0.180 & \textbf{0.017} \\
+  & Low stress & +0.127 & \textbf{0.012} & +0.133 & \textbf{0.003} \\
+  & High stress & +0.073 & 0.063 & +0.093 & \textbf{0.009} \\
+    \midrule
+    \multirow{3}{*}{Wine} & Ideal & +0.033 & 0.582 & +0.133 & \textbf{0.002} \\
+  & Low stress & +0.033 & 0.561 & +0.107 & 0.083 \\
+  & High stress & +0.053 & 0.227 & +0.113 & \textbf{0.010} \\
+    \bottomrule
+  \end{tabular}}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Paired $t$-tests on test precision over five random seeds (five pairs, no correction for multiple comparisons). $\Delta$ is the mean precision difference (QSVC $-$ VQC). Bold values indicate $p < 0.05$.}
+  \label{tab:ttest_precision}
+  \footnotesize
+  \setlength{\tabcolsep}{5pt}
+  \renewcommand{\arraystretch}{1.2}
+  {\color{\chgcolor}\begin{tabular}{llcccc}
+    \toprule
+    & & \multicolumn{2}{c}{QSVC vs.\ VQC-SPSA-100} & \multicolumn{2}{c}{QSVC vs.\ VQC-COBYLA-300} \\
+    \cmidrule(lr){3-4} \cmidrule(lr){5-6}
+    Dataset & Noise setting & $\Delta$ & $p$-value & $\Delta$ & $p$-value \\
+    \midrule
+    \multirow{3}{*}{Iris} & Ideal & +0.108 & \textbf{0.021} & +0.174 & \textbf{0.022} \\
+  & Low stress & +0.113 & \textbf{0.019} & +0.162 & \textbf{0.027} \\
+  & High stress & +0.182 & \textbf{0.047} & +0.180 & \textbf{0.039} \\
+    \midrule
+    \multirow{3}{*}{make\_moons} & Ideal & +0.077 & 0.285 & +0.096 & 0.164 \\
+  & Low stress & +0.050 & 0.328 & +0.124 & 0.063 \\
+  & High stress & +0.100 & 0.082 & +0.065 & 0.148 \\
+    \midrule
+    \multirow{3}{*}{make\_circles} & Ideal & $-$0.044 & 0.349 & $-$0.051 & 0.266 \\
+  & Low stress & $-$0.043 & 0.445 & $-$0.039 & 0.449 \\
+  & High stress & $-$0.085 & 0.118 & $-$0.014 & 0.337 \\
+    \midrule
+    \multirow{3}{*}{Breast Cancer} & Ideal & +0.080 & \textbf{0.030} & +0.104 & 0.060 \\
+  & Low stress & +0.091 & \textbf{0.019} & +0.095 & \textbf{0.008} \\
+  & High stress & +0.046 & 0.110 & +0.051 & \textbf{0.016} \\
+    \midrule
+    \multirow{3}{*}{Wine} & Ideal & $-$0.015 & 0.733 & +0.081 & \textbf{0.016} \\
+  & Low stress & $-$0.007 & 0.861 & +0.058 & 0.180 \\
+  & High stress & +0.001 & 0.969 & +0.025 & 0.632 \\
+    \bottomrule
+  \end{tabular}}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Paired $t$-tests on test recall over five random seeds (five pairs, no correction for multiple comparisons). $\Delta$ is the mean recall difference (QSVC $-$ VQC). Bold values indicate $p < 0.05$.}
+  \label{tab:ttest_recall}
+  \footnotesize
+  \setlength{\tabcolsep}{5pt}
+  \renewcommand{\arraystretch}{1.2}
+  {\color{\chgcolor}\begin{tabular}{llcccc}
+    \toprule
+    & & \multicolumn{2}{c}{QSVC vs.\ VQC-SPSA-100} & \multicolumn{2}{c}{QSVC vs.\ VQC-COBYLA-300} \\
+    \cmidrule(lr){3-4} \cmidrule(lr){5-6}
+    Dataset & Noise setting & $\Delta$ & $p$-value & $\Delta$ & $p$-value \\
+    \midrule
+    \multirow{3}{*}{Iris} & Ideal & +0.027 & 0.477 & +0.053 & 0.242 \\
+  & Low stress & +0.080 & 0.145 & +0.040 & 0.374 \\
+  & High stress & +0.013 & 0.815 & +0.027 & 0.477 \\
+    \midrule
+    \multirow{3}{*}{make\_moons} & Ideal & +0.040 & 0.468 & +0.093 & 0.108 \\
+  & Low stress & +0.027 & 0.704 & +0.067 & 0.600 \\
+  & High stress & +0.120 & 0.255 & +0.080 & 0.374 \\
+    \midrule
+    \multirow{3}{*}{make\_circles} & Ideal & $-$0.013 & 0.828 & $-$0.040 & 0.501 \\
+  & Low stress & $-$0.040 & 0.426 & $-$0.027 & 0.648 \\
+  & High stress & $-$0.053 & 0.338 & $-$0.053 & 0.456 \\
+    \midrule
+    \multirow{3}{*}{Breast Cancer} & Ideal & +0.179 & \textbf{0.003} & +0.189 & \textbf{0.011} \\
+  & Low stress & +0.084 & \textbf{0.035} & +0.095 & 0.121 \\
+  & High stress & +0.053 & 0.142 & +0.105 & \textbf{0.011} \\
+    \midrule
+    \multirow{3}{*}{Wine} & Ideal & +0.121 & 0.147 & +0.146 & 0.087 \\
+  & Low stress & +0.096 & 0.273 & +0.171 & 0.103 \\
+  & High stress & +0.131 & 0.104 & +0.217 & \textbf{0.002} \\
+    \bottomrule
+  \end{tabular}}
+\end{table}
+
+\begin{table}[H]
+  \centering
+  \caption{Paired $t$-tests on test $F_1$ score over five random seeds (five pairs, no correction for multiple comparisons). $\Delta$ is the mean $F_1$ difference (QSVC $-$ VQC). Bold values indicate $p < 0.05$.}
+  \label{tab:ttest_f1}
+  \footnotesize
+  \setlength{\tabcolsep}{5pt}
+  \renewcommand{\arraystretch}{1.2}
+  {\color{\chgcolor}\begin{tabular}{llcccc}
+    \toprule
+    & & \multicolumn{2}{c}{QSVC vs.\ VQC-SPSA-100} & \multicolumn{2}{c}{QSVC vs.\ VQC-COBYLA-300} \\
+    \cmidrule(lr){3-4} \cmidrule(lr){5-6}
+    Dataset & Noise setting & $\Delta$ & $p$-value & $\Delta$ & $p$-value \\
+    \midrule
+    \multirow{3}{*}{Iris} & Ideal & +0.073 & \textbf{0.008} & +0.122 & \textbf{0.013} \\
+  & Low stress & +0.097 & \textbf{0.041} & +0.108 & \textbf{0.044} \\
+  & High stress & +0.106 & 0.078 & +0.108 & \textbf{0.047} \\
+    \midrule
+    \multirow{3}{*}{make\_moons} & Ideal & +0.054 & 0.268 & +0.094 & 0.059 \\
+  & Low stress & +0.032 & 0.527 & +0.092 & 0.315 \\
+  & High stress & +0.112 & 0.150 & +0.080 & 0.198 \\
+    \midrule
+    \multirow{3}{*}{make\_circles} & Ideal & $-$0.022 & 0.510 & $-$0.038 & 0.226 \\
+  & Low stress & $-$0.036 & 0.333 & $-$0.027 & 0.468 \\
+  & High stress & $-$0.067 & 0.124 & $-$0.027 & 0.422 \\
+    \midrule
+    \multirow{3}{*}{Breast Cancer} & Ideal & +0.125 & \textbf{0.002} & +0.141 & \textbf{0.015} \\
+  & Low stress & +0.089 & \textbf{0.017} & +0.096 & \textbf{0.010} \\
+  & High stress & +0.050 & 0.061 & +0.074 & \textbf{0.009} \\
+    \midrule
+    \multirow{3}{*}{Wine} & Ideal & +0.046 & 0.422 & +0.121 & \textbf{0.013} \\
+  & Low stress & +0.041 & 0.453 & +0.115 & 0.109 \\
+  & High stress & +0.062 & 0.164 & +0.126 & \textbf{0.003} \\
+    \bottomrule
+  \end{tabular}}
+\end{table}
+
+{\scriptsize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.1}
+{\color{\chgcolor}
+\begin{longtable}{lllcccccc}
+\caption{Paired $t$-tests on test accuracy, ideal against noisy, over five random seeds (same seeds and splits; five pairs, no correction for multiple comparisons). $\Delta$ is the mean accuracy difference (noisy $-$ ideal). ``Inside'' states whether $|\Delta|$ is smaller than the larger of the two standard deviations. Bold $p$-values are below 0.05.}
+\label{tab:noise_ttests}\\
+\toprule
+Dataset & Model & Noise & Ideal & Noisy & $\Delta$ & Larger SD & Inside & $p$-value \\
+\midrule
+\endfirsthead
+\toprule
+Dataset & Model & Noise & Ideal & Noisy & $\Delta$ & Larger SD & Inside & $p$-value \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+Iris & VQC-COBYLA-300 & Low stress & $0.667\pm0.103$ & $0.687\pm0.107$ & +0.020 & 0.107 & yes & 0.070 \\
+Iris & VQC-COBYLA-300 & High stress & $0.667\pm0.103$ & $0.693\pm0.086$ & +0.027 & 0.103 & yes & 0.477 \\
+Iris & VQC-SPSA-100 & Low stress & $0.727\pm0.049$ & $0.720\pm0.087$ & $-$0.007 & 0.087 & yes & 0.866 \\
+Iris & VQC-SPSA-100 & High stress & $0.727\pm0.049$ & $0.693\pm0.116$ & $-$0.033 & 0.116 & yes & 0.561 \\
+Iris & QSVC & Low stress & $0.813\pm0.056$ & $0.820\pm0.038$ & +0.007 & 0.056 & yes & 0.621 \\
+Iris & QSVC & High stress & $0.813\pm0.056$ & $0.827\pm0.043$ & +0.013 & 0.056 & yes & 0.477 \\
+\midrule
+make\_moons & VQC-COBYLA-300 & Low stress & $0.547\pm0.038$ & $0.547\pm0.065$ & +0.000 & 0.065 & yes & 1.000 \\
+make\_moons & VQC-COBYLA-300 & High stress & $0.547\pm0.038$ & $0.600\pm0.047$ & +0.053 & 0.047 & \textbf{no} & 0.078 \\
+make\_moons & VQC-SPSA-100 & Low stress & $0.573\pm0.064$ & $0.607\pm0.028$ & +0.033 & 0.064 & yes & 0.230 \\
+make\_moons & VQC-SPSA-100 & High stress & $0.573\pm0.064$ & $0.573\pm0.072$ & +0.000 & 0.072 & yes & 1.000 \\
+make\_moons & QSVC & Low stress & $0.633\pm0.053$ & $0.640\pm0.064$ & +0.007 & 0.064 & yes & 0.621 \\
+make\_moons & QSVC & High stress & $0.633\pm0.053$ & $0.653\pm0.038$ & +0.020 & 0.053 & yes & 0.070 \\
+\midrule
+make\_circles & VQC-COBYLA-300 & Low stress & $0.740\pm0.072$ & $0.727\pm0.076$ & $-$0.013 & 0.076 & yes & 0.587 \\
+make\_circles & VQC-COBYLA-300 & High stress & $0.740\pm0.072$ & $0.713\pm0.045$ & $-$0.027 & 0.072 & yes & 0.242 \\
+make\_circles & VQC-SPSA-100 & Low stress & $0.727\pm0.072$ & $0.733\pm0.085$ & +0.007 & 0.085 & yes & 0.621 \\
+make\_circles & VQC-SPSA-100 & High stress & $0.727\pm0.072$ & $0.767\pm0.091$ & +0.040 & 0.091 & yes & \textbf{0.033} \\
+make\_circles & QSVC & Low stress & $0.700\pm0.047$ & $0.700\pm0.041$ & +0.000 & 0.047 & yes & 1.000 \\
+make\_circles & QSVC & High stress & $0.700\pm0.047$ & $0.693\pm0.076$ & $-$0.007 & 0.076 & yes & 0.778 \\
+\midrule
+Breast Cancer & VQC-COBYLA-300 & Low stress & $0.580\pm0.087$ & $0.627\pm0.060$ & +0.047 & 0.087 & yes & 0.184 \\
+Breast Cancer & VQC-COBYLA-300 & High stress & $0.580\pm0.087$ & $0.647\pm0.045$ & +0.067 & 0.087 & yes & 0.089 \\
+Breast Cancer & VQC-SPSA-100 & Low stress & $0.607\pm0.037$ & $0.633\pm0.062$ & +0.027 & 0.062 & yes & 0.099 \\
+Breast Cancer & VQC-SPSA-100 & High stress & $0.607\pm0.037$ & $0.667\pm0.075$ & +0.060 & 0.075 & yes & \textbf{0.037} \\
+Breast Cancer & QSVC & Low stress & $0.760\pm0.064$ & $0.760\pm0.076$ & +0.000 & 0.076 & yes & 1.000 \\
+Breast Cancer & QSVC & High stress & $0.760\pm0.064$ & $0.740\pm0.072$ & $-$0.020 & 0.072 & yes & 0.305 \\
+\midrule
+Wine & VQC-COBYLA-300 & Low stress & $0.647\pm0.051$ & $0.673\pm0.072$ & +0.027 & 0.072 & yes & 0.456 \\
+Wine & VQC-COBYLA-300 & High stress & $0.647\pm0.051$ & $0.673\pm0.068$ & +0.027 & 0.068 & yes & 0.242 \\
+Wine & VQC-SPSA-100 & Low stress & $0.747\pm0.090$ & $0.747\pm0.069$ & +0.000 & 0.090 & yes & 1.000 \\
+Wine & VQC-SPSA-100 & High stress & $0.747\pm0.090$ & $0.733\pm0.067$ & $-$0.013 & 0.090 & yes & 0.477 \\
+Wine & QSVC & Low stress & $0.780\pm0.038$ & $0.780\pm0.051$ & +0.000 & 0.051 & yes & 1.000 \\
+Wine & QSVC & High stress & $0.780\pm0.038$ & $0.787\pm0.038$ & +0.007 & 0.038 & yes & 0.704 \\
+\end{longtable}
+}
+}
+
+\end{document}

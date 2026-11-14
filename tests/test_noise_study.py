@@ -82,3 +82,46 @@ class TestQuantumCircuitConstructs:
         assert ansatz.num_qubits == n_qubits
         # RealAmplitudes with reps=2 and 2 qubits has (reps + 1) * n_qubits = 6 parameters
         assert ansatz.num_parameters == 6
+
+
+class TestCircuitMetricsAndResults:
+    """Validate circuit transpilation metrics and per-seed results integrity."""
+
+    def test_circuit_metrics_table_6(self):
+        from qiskit_aer import AerSimulator
+        from qiskit.transpiler.preset_passmanagers import generate_preset_pass_manager
+        from robustness_study import extract_circuit_metrics
+
+        pm = generate_preset_pass_manager(optimization_level=1, backend=AerSimulator())
+        dummy_fm = ZZFeatureMap(2, reps=2)
+        dummy_ans = RealAmplitudes(2, reps=2)
+        vqc_circ = dummy_fm.compose(dummy_ans)
+        kernel_circ = dummy_fm.compose(dummy_fm.inverse())
+
+        vqc_depth, vqc_1q, vqc_cnot = extract_circuit_metrics(vqc_circ, pm)
+        k_depth, k_1q, k_cnot = extract_circuit_metrics(kernel_circ, pm)
+
+        # Table 6 values in manuscript
+        assert (vqc_depth, vqc_1q, vqc_cnot) == (15, 16, 6)
+        assert (k_depth, k_1q, k_cnot) == (18, 20, 6)
+
+    def test_per_seed_results_integrity(self):
+        import os
+        import pandas as pd
+
+        csv_path = "results_revision/per_seed_results.csv"
+        if not os.path.exists(csv_path):
+            pytest.skip("per_seed_results.csv not found")
+
+        df = pd.read_csv(csv_path)
+        assert len(df) == 250
+        assert not df.isnull().values.any()
+
+        # Check expected models and datasets
+        assert set(df["Dataset"].unique()) == {"Binary_Iris", "Make_Moons", "Make_Circles", "Breast_Cancer", "Wine"}
+        assert set(df["Noise"].unique()) == {"Ideal", "Low_Stress", "High_Stress"}
+        assert set(df["Model"].unique()) == {"Classical_SVM", "VQC_COBYLA_300", "VQC_SPSA_100", "QSVC"}
+
+        # Classical_SVM should only appear under Ideal (5 datasets x 5 seeds = 25 rows)
+        assert len(df[df["Model"] == "Classical_SVM"]) == 25
+        assert set(df[df["Model"] == "Classical_SVM"]["Noise"].unique()) == {"Ideal"}

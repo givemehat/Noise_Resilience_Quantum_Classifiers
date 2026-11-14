@@ -1,16 +1,7 @@
-Dataset,Noise setting,Delta (QSVC - SPSA),p-value (SPSA),Delta (QSVC - COBYLA),p-value (COBYLA)
-Iris,Ideal,+0.133,0.068,+0.194,0.035*
-Iris,Low stress,+0.160,0.040*,+0.180,0.023*
-Iris,High stress,+0.173,0.029*,+0.227,0.003*
-make_moons,Ideal,+0.040,0.359,+0.140,0.012*
-make_moons,Low stress,+0.060,0.295,+0.060,0.286
-make_moons,High stress,+0.067,0.230,+0.126,0.095
-make_circles,Ideal,-0.067,0.047*,-0.067,0.089
-make_circles,Low stress,-0.060,0.266,-0.053,0.212
-make_circles,High stress,-0.060,0.105,-0.054,0.120
-Breast Cancer,Ideal,+0.107,0.051,+0.160,0.033*
-Breast Cancer,Low stress,+0.107,0.078,+0.127,0.053
-Breast Cancer,High stress,+0.073,0.108,+0.127,0.034*
-Wine,Ideal,+0.107,0.051,+0.167,0.022*
-Wine,Low stress,+0.033,0.546,+0.107,0.089
-Wine,High stress,+0.060,0.167,+0.094,0.019*
+Model,Noise,mean_delta_Accuracy,mean_delta_Precision,mean_delta_Recall,mean_delta_F1
+VQC_COBYLA_300,Low_Stress,0.016,0.006,0.016,0.011
+VQC_COBYLA_300,High_Stress,0.029,0.026,0.019,0.02
+VQC_SPSA_100,Low_Stress,0.012,0.006,0.018,0.011
+VQC_SPSA_100,High_Stress,0.011,-0.001,0.024,0.007
+QSVC,Low_Stress,0.003,0.005,-0.003,0.0
+QSVC,High_Stress,0.003,0.007,0.006,0.004
